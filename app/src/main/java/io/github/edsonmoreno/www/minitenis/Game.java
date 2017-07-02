@@ -1,8 +1,11 @@
 package io.github.edsonmoreno.www.minitenis;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.view.Display;
+import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
 
@@ -17,6 +20,9 @@ public class Game extends SurfaceView implements Runnable {
         Display pantalla = wm.getDefaultDisplay();
         Point point = new Point();
         pantalla.getSize(point);
+
+        holder = getHolder();
+        paint = new Paint();
 
         ancho = point.x;
         alto = point.y;
@@ -45,4 +51,7 @@ public class Game extends SurfaceView implements Runnable {
     private int ancho, alto;
     private boolean jugando;
     private Thread pintor;
+    private SurfaceHolder holder;
+    private Canvas canvas;
+    private Paint paint;
 }
