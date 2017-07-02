@@ -2,6 +2,7 @@ package io.github.edsonmoreno.www.minitenis;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.view.Display;
@@ -37,7 +38,11 @@ public class Game extends SurfaceView implements Runnable {
     }
 
     public void Pintar(){
-
+        if(holder.getSurface().isValid()){
+            canvas = holder.lockCanvas();
+            canvas.drawColor(Color.WHITE);
+            holder.unlockCanvasAndPost(canvas);
+        }
     }
 
     @Override
