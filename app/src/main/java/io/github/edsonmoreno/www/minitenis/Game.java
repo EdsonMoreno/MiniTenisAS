@@ -28,9 +28,9 @@ public class Game extends SurfaceView implements Runnable {
         ancho = point.x;
         alto = point.y;
 
-        pintor = new Thread(this);
-        pintor.run();
         jugando=true;
+        pintor = new Thread(this);
+        pintor.start();
     }
 
     public void Actualizar(){
