@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 /**
  * Created by Edson D.  on 02/07/2017.
@@ -33,6 +34,7 @@ public class Game extends SurfaceView implements Runnable {
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
 
+        puntos = 0;
         jugando=true;
         pintor = new Thread(this);
         pintor.start();
@@ -44,11 +46,14 @@ public class Game extends SurfaceView implements Runnable {
     }
 
     public void Pintar(){
+        String score=getResources().getString(R.string.puntajes);
+        paint.setTextSize(30);
         if(holder.getSurface().isValid()){
             canvas = holder.lockCanvas();
             canvas.drawColor(Color.WHITE);
             canvas.drawRect(raqueta.getRaqueta(), paint);
             canvas.drawOval(pelota.getPelota(), paint);
+            canvas.drawText(score+" : "+puntos,2,70,paint);
             holder.unlockCanvasAndPost(canvas);
         }
     }
@@ -70,16 +75,15 @@ public class Game extends SurfaceView implements Runnable {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         raqueta.Mover(event);
-        System.out.println("CLIC");
         return super.onTouchEvent(event);
     }
 
-    private int ancho, alto;
+    private int ancho, alto, puntos;
     private boolean jugando;
     private Thread pintor;
     private SurfaceHolder holder;
     private Canvas canvas;
     private Paint paint;
-     Raqueta raqueta;
+    Raqueta raqueta;
     Pelota pelota;
 }
