@@ -24,9 +24,12 @@ public class Game extends SurfaceView implements Runnable {
 
         holder = getHolder();
         paint = new Paint();
+        paint.setColor(Color.BLACK);
 
         ancho = point.x;
         alto = point.y;
+
+        raqueta = new Raqueta(this);
 
         jugando=true;
         pintor = new Thread(this);
@@ -34,13 +37,14 @@ public class Game extends SurfaceView implements Runnable {
     }
 
     public void Actualizar(){
-
+        raqueta.Actualizar();
     }
 
     public void Pintar(){
         if(holder.getSurface().isValid()){
             canvas = holder.lockCanvas();
             canvas.drawColor(Color.WHITE);
+            canvas.drawRect(raqueta.getRaqueta(), paint);
             holder.unlockCanvasAndPost(canvas);
         }
     }
@@ -62,4 +66,5 @@ public class Game extends SurfaceView implements Runnable {
     private SurfaceHolder holder;
     private Canvas canvas;
     private Paint paint;
+    private Raqueta raqueta;
 }

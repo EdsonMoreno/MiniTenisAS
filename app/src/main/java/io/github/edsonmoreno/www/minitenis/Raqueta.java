@@ -20,20 +20,22 @@ public class Raqueta {
 
     private int dir=1;
     public void Actualizar(){
-        if(x+xr > 0 && xr+x <= game.getAncho()-100)
-            xr+=x;
-        if(xr < game.getAncho()+100 && dir==1){
-            xr=10;
+        if(xr+x < game.getAncho()-100 && dir==1){
+            x=10;
         }
-        else if(xr > game.getAncho()+100 && dir==1){
+        if(xr+x >= game.getAncho()-100 && dir==1){
             dir = 0;
+            x-=10;
         }
-        if(xr > 0 && dir ==0){
-            xr=10;
+        if(xr+x > 0 && dir ==0){
+            x=-10;
         }
-        else if(xr <= 0){
+        if(xr <= 0){
             dir = 1;
+            x+=10;
         }
+        xr+=x;
+        this.raqueta.set(xr,yr,xr+100,yr+30);
     }
 
     public void Mover(MotionEvent event){
