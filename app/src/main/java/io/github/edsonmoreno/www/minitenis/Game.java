@@ -54,6 +54,9 @@ public class Game extends SurfaceView implements Runnable {
 
     public int getAncho(){  return ancho;   }
     public int getAlto(){   return alto;    }
+    public boolean getJugando(){    return jugando;  }
+    
+    public void setJugando(boolean jugando){ this.jugando = jugando;  }
 
     @Override
     public void run() {
