@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
@@ -55,7 +56,7 @@ public class Game extends SurfaceView implements Runnable {
     public int getAncho(){  return ancho;   }
     public int getAlto(){   return alto;    }
     public boolean getJugando(){    return jugando;  }
-    
+
     public void setJugando(boolean jugando){ this.jugando = jugando;  }
 
     @Override
@@ -66,12 +67,19 @@ public class Game extends SurfaceView implements Runnable {
         }
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        raqueta.Mover(event);
+        System.out.println("CLIC");
+        return super.onTouchEvent(event);
+    }
+
     private int ancho, alto;
     private boolean jugando;
     private Thread pintor;
     private SurfaceHolder holder;
     private Canvas canvas;
     private Paint paint;
-    private Raqueta raqueta;
-    private Pelota pelota;
+     Raqueta raqueta;
+    Pelota pelota;
 }

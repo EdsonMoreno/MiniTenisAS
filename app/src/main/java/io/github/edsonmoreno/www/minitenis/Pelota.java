@@ -33,9 +33,16 @@ public class Pelota {
         if(yp+y > game.getAlto()-50){
             y=-10;
         }
+        if(game.raqueta.getRaqueta().intersect(pelota)){
+            y=-10;
+        }
         xp+=x;
         yp+=y;
         pelota.set(xp, yp, xp+50, yp+50);
+    }
+
+    public boolean Colision(RectF rectF) {
+        return pelota.intersect(rectF);
     }
 
     private int xp,yp,x,y;

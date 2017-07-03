@@ -40,12 +40,16 @@ public class Raqueta {
 
     public void Mover(MotionEvent event){
         float corx = event.getX();
-        if(corx < xr && x == 10){
-            x=-10;
+        if(corx < xr && dir == 1){
+            dir=0;
         }
-        if(corx > (xr+100) && x == -10){
-            x=10;
+        if(corx > (xr+100) && dir == 0){
+            dir=1;
         }
+    }
+
+    public boolean Colision(RectF rectF){
+        return raqueta.intersect(rectF);
     }
 
     private float xr, yr, x, y;
