@@ -45,6 +45,9 @@ public class Game extends SurfaceView implements Runnable {
         }
     }
 
+    public int getAncho(){  return ancho;   }
+    public int getAlto(){   return alto;    }
+
     @Override
     public void run() {
         while(jugando){
