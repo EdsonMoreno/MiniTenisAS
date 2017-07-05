@@ -15,5 +15,11 @@ public class MainActivity extends Activity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        game.Detener();
+    }
+
     private Game game;
 }

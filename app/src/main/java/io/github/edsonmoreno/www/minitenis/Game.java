@@ -82,6 +82,10 @@ public class Game extends SurfaceView implements Runnable {
         return super.onTouchEvent(event);
     }
 
+    public void Detener(){
+        jugando=false;
+    }
+
     private int ancho, alto, puntos, vdjuego;
     private String score;
     private boolean jugando;
