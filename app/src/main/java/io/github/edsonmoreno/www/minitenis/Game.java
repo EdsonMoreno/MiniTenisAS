@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 /**
  * Created by Edson D.  on 02/07/2017.
@@ -61,13 +60,6 @@ public class Game extends SurfaceView implements Runnable {
 
     public int getAncho(){  return ancho;   }
     public int getAlto(){   return alto;    }
-    public int getVdjuego(){    return vdjuego; }
-    public boolean getJugando(){    return jugando;  }
-
-    public void cambiarVelocidad (int nueva_velocidad){ vdjuego+=nueva_velocidad;   }
-
-    public void setJugando(boolean jugando){ this.jugando = jugando;  }
-    public void setScore(int score){    this.puntos+=score;  }
 
     @Override
     public void run() {
@@ -97,6 +89,6 @@ public class Game extends SurfaceView implements Runnable {
     private SurfaceHolder holder;
     private Canvas canvas;
     private Paint paint;
-    Raqueta raqueta;
-    Pelota pelota;
+    protected Raqueta raqueta;
+    protected Pelota pelota;
 }
