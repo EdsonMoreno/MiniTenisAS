@@ -15,19 +15,19 @@ public class Raqueta {
         yr=game.getAlto()-70;
         raqueta = new RectF(xr,yr,xr+200,yr+30);
         x=0;
+        tam_raq = 200;
     }
 
     public RectF getRaqueta(){  return raqueta; }
 
 
     public void Actualizar(){
-        xr+=x;
-        this.raqueta.set(xr,yr,xr+200,yr+30);
+        if(xr + x > 0 && xr + x < game.getAncho()-tam_raq ) xr+=x;
+        this.raqueta.set(xr,yr,xr+tam_raq,yr+30);
     }
 
     public void Mover(MotionEvent event){
         float corx = event.getX();
-       // int action = event.getAction();
         int action = MotionEventCompat.getActionMasked(event);
         switch (action){
             case MotionEvent.ACTION_DOWN:
@@ -49,7 +49,7 @@ public class Raqueta {
         return raqueta.intersect(rectF);
     }
 
-    private float xr, yr, x, y;
+    private float xr, yr, x, y, tam_raq;
     private RectF raqueta;
     private Game game;
 }
