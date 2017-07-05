@@ -12,10 +12,14 @@ public class Pelota {
         ancho=game.getAncho();
         alto=game.getAlto();
         xp=(ancho/2)-20;
-        yp=(alto/2)-20;
-        x=y=velJuego=10;
+       // yp=(alto/2)-20;
+        yp=100;
+        x=0;
+        y= 0;
+        velJuego=0;
         golpe=0;
-
+        x=y=velJuego;
+        y=5;
         pelota = new RectF(xp,yp,xp+40,yp+40);
     }
 
@@ -23,16 +27,20 @@ public class Pelota {
 
     public void Actualizar(){
         if(xp+x < 0){
-            x=velJuego;
+          //  x=velJuego;
         }
         if(xp+x > game.getAncho()-50){
-            x=-velJuego;
+            //x=-velJuego;
         }
         if(yp+y < 0){
-            y=velJuego;
+            y=5;
         }
         if(yp+y > game.getAlto()-50){
-            y=-velJuego;
+            y=0;
+        }
+        if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
+            y=-5;
+            System.out.println("Golpe");
         }
         xp+=x;
         yp+=y;
