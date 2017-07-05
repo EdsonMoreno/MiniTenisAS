@@ -10,9 +10,9 @@ import android.view.MotionEvent;
 public class Raqueta {
     public Raqueta(Game game){
         this.game = game;
-        xr=(game.getAncho()/2)-50;
+        xr=(game.getAncho()/2)-100;
         yr=game.getAlto()-70;
-        raqueta = new RectF(xr,yr,xr+100,yr+30);
+        raqueta = new RectF(xr,yr,xr+200,yr+30);
         x=10;
     }
 
@@ -20,10 +20,10 @@ public class Raqueta {
 
     private int dir=1;
     public void Actualizar(){
-        if(xr+x < game.getAncho()-100 && dir==1){
+        if(xr+x < game.getAncho()-200 && dir==1){
             x=10;
         }
-        if(xr+x >= game.getAncho()-100 && dir==1){
+        if(xr+x >= game.getAncho()-200 && dir==1){
             dir = 0;
             x-=10;
         }
@@ -35,7 +35,7 @@ public class Raqueta {
             x+=10;
         }
         xr+=x;
-        this.raqueta.set(xr,yr,xr+100,yr+30);
+        this.raqueta.set(xr,yr,xr+200,yr+30);
     }
 
     public void Mover(MotionEvent event){
@@ -43,7 +43,7 @@ public class Raqueta {
         if(corx < xr && dir == 1){
             dir=0;
         }
-        if(corx > (xr+100) && dir == 0){
+        if(corx > (xr+200) && dir == 0){
             dir=1;
         }
     }

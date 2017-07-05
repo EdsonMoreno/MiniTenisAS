@@ -27,9 +27,12 @@ public class Game extends SurfaceView implements Runnable {
         holder = getHolder();
         paint = new Paint();
         paint.setColor(Color.BLACK);
+        score =getResources().getString(R.string.puntajes);
+        paint.setTextSize(30);
 
         ancho = point.x;
         alto = point.y;
+        vdjuego=10;
 
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
@@ -46,8 +49,6 @@ public class Game extends SurfaceView implements Runnable {
     }
 
     public void Pintar(){
-        String score=getResources().getString(R.string.puntajes);
-        paint.setTextSize(30);
         if(holder.getSurface().isValid()){
             canvas = holder.lockCanvas();
             canvas.drawColor(Color.WHITE);
@@ -60,9 +61,13 @@ public class Game extends SurfaceView implements Runnable {
 
     public int getAncho(){  return ancho;   }
     public int getAlto(){   return alto;    }
+    public int getVdjuego(){    return vdjuego; }
     public boolean getJugando(){    return jugando;  }
 
+    public void cambiarVelocidad (int nueva_velocidad){ vdjuego+=nueva_velocidad;   }
+
     public void setJugando(boolean jugando){ this.jugando = jugando;  }
+    public void setScore(int score){    this.puntos+=score;  }
 
     @Override
     public void run() {
@@ -78,7 +83,8 @@ public class Game extends SurfaceView implements Runnable {
         return super.onTouchEvent(event);
     }
 
-    private int ancho, alto, puntos;
+    private int ancho, alto, puntos, vdjuego;
+    private String score;
     private boolean jugando;
     private Thread pintor;
     private SurfaceHolder holder;
