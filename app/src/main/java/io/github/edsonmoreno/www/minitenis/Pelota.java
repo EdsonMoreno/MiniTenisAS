@@ -33,13 +33,13 @@ public class Pelota {
             //x=-velJuego;
         }
         if(yp+y < 0){
-            y=5;
+            y=10;
         }
         if(yp+y > game.getAlto()-50){
             y=0;
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
-            y=-5;
+            y=-15;
             System.out.println("Golpe");
         }
         xp+=x;
