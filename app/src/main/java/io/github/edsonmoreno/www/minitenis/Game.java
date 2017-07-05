@@ -80,6 +80,13 @@ public class Game extends SurfaceView implements Runnable {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         raqueta.Mover(event);
+        int a = event.getActionMasked();
+        switch (a){
+            case MotionEvent.ACTION_DOWN:
+                return true;
+            case MotionEvent.ACTION_UP:
+                return true;
+        }
         return super.onTouchEvent(event);
     }
 

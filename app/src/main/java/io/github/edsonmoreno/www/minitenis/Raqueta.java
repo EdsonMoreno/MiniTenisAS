@@ -1,6 +1,7 @@
 package io.github.edsonmoreno.www.minitenis;
 
 import android.graphics.RectF;
+import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 
 /**
@@ -26,21 +27,21 @@ public class Raqueta {
 
     public void Mover(MotionEvent event){
         float corx = event.getX();
-        int action = event.getActionMasked();
-
+       // int action = event.getAction();
+        int action = MotionEventCompat.getActionMasked(event);
         switch (action){
             case MotionEvent.ACTION_DOWN:
                 x=10;
+                if(corx < xr){
+                    x*=-1;
+                }
+                if(corx > (xr+200)){
+                    x*=1;
+                }
             break;
             case MotionEvent.ACTION_UP:
                 x=0;
             break;
-        }
-        if(corx < xr){
-            x*=-1;
-        }
-        if(corx > (xr+200)){
-            x*=1;
         }
     }
 
