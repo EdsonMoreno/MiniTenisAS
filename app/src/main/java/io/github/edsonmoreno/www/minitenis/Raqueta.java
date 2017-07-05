@@ -31,16 +31,16 @@ public class Raqueta {
         switch (action){
             case MotionEvent.ACTION_DOWN:
                 x=10;
-
+            break;
             case MotionEvent.ACTION_UP:
                 x=0;
-
+            break;
         }
         if(corx < xr){
-            x*=1;
+            x*=-1;
         }
         if(corx > (xr+200)){
-            x*=-1;
+            x*=1;
         }
     }
 
