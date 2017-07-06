@@ -20,6 +20,7 @@ public class Pelota {
         golpe=0;
         x=y=velJuego;
         y=5;
+        x=5;
         pelota = new RectF(xp,yp,xp+40,yp+40);
     }
 
@@ -28,9 +29,11 @@ public class Pelota {
     public void Actualizar(){
         if(xp+x < 0){
           //  x=velJuego;
+            x=10;
         }
         if(xp+x > game.getAncho()-50){
             //x=-velJuego;
+            x=-10;
         }
         if(yp+y < 0){
             y=10;
