@@ -42,8 +42,7 @@ public class Pelota {
             y=0;
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
-            y=-15;
-            System.out.println("Golpe");
+            y=-10;
         }
         xp+=x;
         yp+=y;

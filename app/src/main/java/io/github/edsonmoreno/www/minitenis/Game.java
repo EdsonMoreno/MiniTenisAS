@@ -32,14 +32,10 @@ public class Game extends SurfaceView implements Runnable {
         ancho = point.x;
         alto = point.y;
         vdjuego=10;
+        puntos = 0;
 
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
-
-        puntos = 0;
-        jugando=true;
-        pintor = new Thread(this);
-        pintor.start();
     }
 
     public void Actualizar(){
@@ -84,6 +80,12 @@ public class Game extends SurfaceView implements Runnable {
 
     public void Detener(){
         jugando=false;
+    }
+
+    public void nuevoJuego(){
+        jugando=true;
+        pintor = new Thread(this);
+        pintor.start();
     }
 
     private int ancho, alto, puntos, vdjuego;

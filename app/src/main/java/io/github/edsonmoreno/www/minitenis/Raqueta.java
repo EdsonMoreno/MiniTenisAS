@@ -12,7 +12,7 @@ public class Raqueta {
     public Raqueta(Game game){
         this.game = game;
         xr=(game.getAncho()/2)-100;
-        yr=game.getAlto()-70;
+        yr=game.getAlto()-200;
         raqueta = new RectF(xr,yr,xr+200,yr+30);
         x=0;
         tam_raq = 200;
