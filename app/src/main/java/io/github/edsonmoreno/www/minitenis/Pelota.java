@@ -13,7 +13,7 @@ public class Pelota {
         alto=game.getAlto();
         xp=(ancho/2)-20;
        // yp=(alto/2)-20;
-        yp=100;
+        yp=-100;
         x=0;
         y= 0;
         velJuego=0;
@@ -22,18 +22,21 @@ public class Pelota {
         y=5;
         x=5;
         pelota = new RectF(xp,yp,xp+40,yp+40);
+        movimiento_horizontal=false;
     }
 
     public RectF getPelota(){   return pelota;  }
 
     public void Actualizar(){
-        if(xp+x < 0){
-          //  x=velJuego;
-            x=10;
-        }
-        if(xp+x > game.getAncho()-50){
-            //x=-velJuego;
-            x=-10;
+        if(movimiento_horizontal) {
+            if (xp + x < 0) {
+                //  x=velJuego;
+                x = 10;
+            }
+            if (xp + x > game.getAncho() - 50) {
+                //x=-velJuego;
+                x = -10;
+            }
         }
         if(yp+y < 0){
             y=10;
@@ -43,6 +46,7 @@ public class Pelota {
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
             y=-10;
+            movimiento_horizontal=true;
         }
         xp+=x;
         yp+=y;
@@ -58,4 +62,5 @@ public class Pelota {
     private RectF pelota;
     private Game game;
     private int golpe;
+    private boolean movimiento_horizontal;
 }

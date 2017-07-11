@@ -21,5 +21,14 @@ public class MainActivity extends Activity {
         game.Detener();
     }
 
+    /**
+     *
+     * */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        game.nuevoJuego();
+    }
+
     private Game game;
 }
