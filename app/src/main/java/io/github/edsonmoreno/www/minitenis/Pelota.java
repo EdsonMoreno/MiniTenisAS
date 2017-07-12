@@ -37,8 +37,10 @@ public class Pelota {
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
             y=-10;
             int num =(int) (Math.random()*2)+1;
-            System.out.println("n "+num);
             switch (num){
+                case 0:
+                    x=0;
+                    break;
                 case 1:
                     x=10;
                     break;
