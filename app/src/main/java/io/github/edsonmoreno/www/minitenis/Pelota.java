@@ -12,8 +12,8 @@ public class Pelota {
         ancho=game.getAncho();
         alto=game.getAlto();
         xp=(ancho/2)-20;
-        yp=-alto*2;
-        y=10;
+        yp=-alto*40;
+        y=1;
         x=0;
         pelota = new RectF(xp,yp,xp+40,yp+40);
     }
@@ -32,16 +32,19 @@ public class Pelota {
         }
         if(yp+y > game.getAlto()-50){
             y=0;
+            x=0;
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
             y=-10;
-            int num =(int) (Math.random()*2);
+            int num =(int) (Math.random()*2)+1;
+            System.out.println("n "+num);
             switch (num){
                 case 1:
                     x=10;
                     break;
                 case 2:
                     x=-10;
+                    break;
             }
 
         }
