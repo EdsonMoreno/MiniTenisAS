@@ -83,7 +83,11 @@ public class Game extends SurfaceView implements Runnable {
     }
     public void SumarPuntos(){
         puntos++;
-        if(puntos % 5 == 0) pelota.CambiarVelocidad();
+        if(puntos % 5 == 0){
+            pelota.CambiarVelocidad();
+            nivel++;
+            System.out.println("vel "+pelota.getVelocidad());
+        }
     }
 
     public void nuevoJuego(){
@@ -92,7 +96,7 @@ public class Game extends SurfaceView implements Runnable {
         pintor.start();
     }
 
-    private int ancho, alto, puntos, vdjuego;
+    private int ancho, alto, puntos, niveñ;
     private String score;
     private boolean jugando;
     private Thread pintor;

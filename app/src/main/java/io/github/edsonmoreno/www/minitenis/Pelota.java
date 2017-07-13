@@ -47,8 +47,9 @@ public class Pelota {
     }
 
     public void CambiarVelocidad(){
-        velocidad+=2;
+        velocidad+=1;
     }
+    public int getVelocidad(){ return velocidad;   }
 
     private int xp,yp,x,y;
     private int ancho, alto, velocidad;

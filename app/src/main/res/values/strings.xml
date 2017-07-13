@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Mini Tenis</string>
     <string name="puntajes">Puntuacion: </string>
+    <string name="nivel">Nivel: </string>
 </resources>
