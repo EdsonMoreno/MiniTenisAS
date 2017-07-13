@@ -32,6 +32,11 @@ public class Game extends SurfaceView implements Runnable {
 
         ancho = point.x;
         alto = point.y;
+
+        //calcula tres cuartos de pantalla para el texto d enivel
+        tres_cuartos = ancho/4;
+        tres_cuartos*=3;
+
         nivel = 0;
         puntos = 0;
 
@@ -51,7 +56,7 @@ public class Game extends SurfaceView implements Runnable {
             canvas.drawRect(raqueta.getRaqueta(), paint);
             canvas.drawOval(pelota.getPelota(), paint);
             canvas.drawText(score+" : "+puntos,2,70,paint);
-            canvas.drawText(level+" : "+nivel,2,100,paint);
+            canvas.drawText(level+" : "+nivel,tres_cuartos,70,paint);
             holder.unlockCanvasAndPost(canvas);
         }
     }
@@ -98,7 +103,7 @@ public class Game extends SurfaceView implements Runnable {
         pintor.start();
     }
 
-    private int ancho, alto, puntos, nivel;
+    private int ancho, alto, puntos, nivel, tres_cuartos;
     private String score, level;
     private boolean jugando;
     private Thread pintor;
