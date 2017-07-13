@@ -15,6 +15,7 @@ public class Pelota {
         yp=-alto*40;
         y=1;
         x=0;
+        velocidad=10;
         pelota = new RectF(xp,yp,xp+40,yp+40);
     }
 
@@ -22,30 +23,35 @@ public class Pelota {
 
     public void Actualizar(){
         if (xp + x <= 0) {
-            x = 10;
+            x = velocidad;
         }
         if (xp + x > game.getAncho() - 50) {
-            x = -10;
+            x = -velocidad;
         }
         if(yp+y < 0){
-            y=10;
+            y=velocidad;
         }
         if(yp+y > game.getAlto()-50){
             y=0;
             x=0;
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
-            y=-10;
-            if(game.raqueta.getRaqueta().centerX() <= xp) x=-10;
-            if(game.raqueta.getRaqueta().centerX() > xp) x=10;
+            y=-velocidad;
+            game.SumarPuntos();
+            if(game.raqueta.getRaqueta().centerX() <= xp) x=-velocidad;
+            if(game.raqueta.getRaqueta().centerX() > xp) x=velocidad;
         }
         xp+=x;
         yp+=y;
         pelota.set(xp, yp, xp+50, yp+50);
     }
 
+    public void CambiarVelocidad(){
+        velocidad+=2;
+    }
+
     private int xp,yp,x,y;
-    private int ancho, alto;
+    private int ancho, alto, velocidad;
     private RectF pelota;
     private Game game;
 }

@@ -81,6 +81,10 @@ public class Game extends SurfaceView implements Runnable {
     public void Detener(){
         jugando=false;
     }
+    public void SumarPuntos(){
+        puntos++;
+        if(puntos % 5 == 0) pelota.CambiarVelocidad();
+    }
 
     public void nuevoJuego(){
         jugando=true;
