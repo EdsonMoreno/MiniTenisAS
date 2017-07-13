@@ -48,6 +48,7 @@ public class Raqueta {
     public boolean Colision(RectF rectF){
         return raqueta.intersect(rectF);
     }
+    public float getAncho(){  return xr;  }
 
     private float xr, yr, x, y, tam_raq;
     private RectF raqueta;
