@@ -25,7 +25,7 @@ public class Game extends SurfaceView implements Runnable {
 
         holder = getHolder();
         paint = new Paint();
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.WHITE);
         score =getResources().getString(R.string.puntajes);
         level = getResources().getString(R.string.nivel);
         paint.setTextSize(30);
@@ -52,7 +52,7 @@ public class Game extends SurfaceView implements Runnable {
     public void Pintar(){
         if(holder.getSurface().isValid()){
             canvas = holder.lockCanvas();
-            canvas.drawColor(Color.WHITE);
+            canvas.drawColor(getResources().getColor(R.color.Suelo));
             canvas.drawRect(raqueta.getRaqueta(), paint);
             canvas.drawOval(pelota.getPelota(), paint);
             canvas.drawText(score+" : "+puntos,2,70,paint);
@@ -93,7 +93,6 @@ public class Game extends SurfaceView implements Runnable {
         if(puntos % 5 == 0){
             pelota.CambiarVelocidad();
             nivel++;
-            System.out.println("vel "+pelota.getVelocidad());
         }
     }
 
