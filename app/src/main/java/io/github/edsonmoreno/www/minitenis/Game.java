@@ -98,7 +98,14 @@ public class Game extends SurfaceView implements Runnable {
         return super.onTouchEvent(event);
     }
 
-    public void Detener(){  jugando=false;  }
+    public void Detener(){
+        jugando=false;
+        try {
+            pintor.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public void SumarPuntos(){
         puntos++;
         if(puntos % 5 == 0){
