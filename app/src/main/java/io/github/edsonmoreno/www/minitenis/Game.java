@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.os.Handler;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -66,10 +67,22 @@ public class Game extends SurfaceView implements Runnable {
 
     @Override
     public void run() {
+        Pintar();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         while(jugando){
+            long startFrameTime = System.currentTimeMillis();
             Actualizar();
             Pintar();
+            timeThisFrame = System.currentTimeMillis() - startFrameTime;
+            if (timeThisFrame >= 1) {
+                fps = 1000 / timeThisFrame;
+            }
         }
+
     }
 
     @Override
@@ -85,9 +98,7 @@ public class Game extends SurfaceView implements Runnable {
         return super.onTouchEvent(event);
     }
 
-    public void Detener(){
-        jugando=false;
-    }
+    public void Detener(){  jugando=false;  }
     public void SumarPuntos(){
         puntos++;
         if(puntos % 5 == 0){
@@ -111,4 +122,5 @@ public class Game extends SurfaceView implements Runnable {
     private Paint paint;
     protected Raqueta raqueta;
     protected Pelota pelota;
+    private long timeThisFrame, fps;
 }

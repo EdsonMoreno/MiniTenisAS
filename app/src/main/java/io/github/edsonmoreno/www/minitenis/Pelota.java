@@ -12,7 +12,7 @@ public class Pelota {
         ancho=game.getAncho();
         alto=game.getAlto();
         xp=(ancho/2)-20;
-        yp=-alto*40;
+        yp=-20;
         y=1;
         x=0;
         velocidad=10;
