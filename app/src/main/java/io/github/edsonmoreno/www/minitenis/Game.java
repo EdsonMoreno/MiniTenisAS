@@ -46,12 +46,14 @@ public class Game extends SurfaceView implements Runnable {
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
         pelota_verde = new Obstaculo(this);
+        pelota_azul = new Obstaculo(this);
     }
 
     public void Actualizar(){
         raqueta.Actualizar();
         pelota.Actualizar();
         if(verde)   pelota_verde.Actualizar();
+        if(azul)    pelota_azul.Actualizar();
     }
 
     public void Pintar(){
@@ -68,6 +70,11 @@ public class Game extends SurfaceView implements Runnable {
             if(verde){
                 paint.setColor(Color.GREEN);
                 canvas.drawRect(pelota_verde.getPelota(), paint);
+                paint.setColor(Color.WHITE);
+            }
+            if(azul){
+                paint.setColor(Color.BLUE);
+                canvas.drawRect(pelota_azul.getPelota(), paint);
                 paint.setColor(Color.WHITE);
             }
             canvas.drawText(score+" : "+puntos,2,70,paint);
@@ -132,6 +139,7 @@ public class Game extends SurfaceView implements Runnable {
         if(puntos % 5 == 0){
             pelota.CambiarVelocidad();
             nivel++;
+            if(verde)   azul = true;
             verde=true;
         }
     }
@@ -139,19 +147,20 @@ public class Game extends SurfaceView implements Runnable {
     public void nuevoJuego(){
         jugando=true;
         verde=false;
+        azul=false;
         pintor = new Thread(this);
         pintor.start();
     }
 
     private int ancho, alto, puntos, nivel, vidas, tres_cuartos, un_cuarto;
     private String score, level, life;
-    private boolean jugando, verde;
+    private boolean jugando, verde, azul;
     private Thread pintor;
     private SurfaceHolder holder;
     private Canvas canvas;
     private Paint paint;
     protected Raqueta raqueta;
     protected Pelota pelota;
-    protected Obstaculo pelota_verde;
+    protected Obstaculo pelota_verde, pelota_azul;
     private long timeThisFrame, fps;
 }
