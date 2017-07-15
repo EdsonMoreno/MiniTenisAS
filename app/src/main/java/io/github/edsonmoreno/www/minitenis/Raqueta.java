@@ -49,6 +49,7 @@ public class Raqueta {
         return raqueta.intersect(rectF);
     }
     public float getAncho(){  return xr;  }
+    public void ReduceRaqueta(){    tam_raq-=20; }
 
     private float xr, yr, x, y, tam_raq;
     private RectF raqueta;

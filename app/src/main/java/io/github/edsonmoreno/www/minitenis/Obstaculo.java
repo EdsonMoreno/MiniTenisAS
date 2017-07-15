@@ -9,6 +9,7 @@ import android.graphics.RectF;
 public class Obstaculo extends Pelota {
     public Obstaculo(Game game) {
         super(game);
+        xp=(int) (Math.random()*game.getAncho())-50;
     }
 
     public void Actualizar(){
@@ -17,7 +18,7 @@ public class Obstaculo extends Pelota {
         }
         if(yp+y > game.getAlto()-50){
             if(game.estaMuerto()) {
-                game.pierdeVida();
+                game.raqueta.ReduceRaqueta();
                 reubicarBola();
             }
             else {
