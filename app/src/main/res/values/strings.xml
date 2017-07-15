@@ -18,6 +18,10 @@
         \n
         Si golpeas la pelota con la mitad posterior de la raqueta conseguiras que la bola rebote
         contra la pared izquierda de la pantalla.
+        \n
+        Cada vez que sumas cinco puntos caera un cuadrado de forma vertical el cual deberas mantener
+        rebotando, o de lo contrario no solo perderas una vida sino que el tamaño de tu raqueta se
+        reducira en 20pts.
     </string>
     <string name="boton_volver">Volver al menus principal</string>
     <string name="acerca_de">Informacion\n del juego</string>
