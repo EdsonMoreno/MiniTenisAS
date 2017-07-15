@@ -1,8 +1,10 @@
 package io.github.edsonmoreno.www.minitenis;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -11,22 +13,20 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         //bloquea la actividad en vertical
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        game = new Game(this);
-        setContentView(game);
+        setContentView(R.layout.activity_main);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        game.Detener();
+    public void dameInfo(View vista){
+        Intent intencion = new Intent(this, Informacion.class);
+        startActivity(intencion);
     }
 
+    public void highScore(View vista){
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        game.nuevoJuego();
     }
 
-    private Game game;
+    public void  newGame(View vista){
+
+    }
+
 }
