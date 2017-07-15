@@ -52,8 +52,8 @@ public class Game extends SurfaceView implements Runnable {
     public void Actualizar(){
         raqueta.Actualizar();
         pelota.Actualizar();
-        if(verde)   pelota_verde.Actualizar();
-        if(azul)    pelota_azul.Actualizar();
+        if(pelota_verde.isVisible())   pelota_verde.Actualizar();
+        if(pelota_azul.isVisible())    pelota_azul.Actualizar();
     }
 
     public void Pintar(){
@@ -67,12 +67,12 @@ public class Game extends SurfaceView implements Runnable {
             paint.setColor(Color.WHITE);
             canvas.drawRect(raqueta.getRaqueta(), paint);
             canvas.drawOval(pelota.getPelota(), paint);
-            if(verde){
+            if(pelota_verde.isVisible()){
                 paint.setColor(Color.GREEN);
                 canvas.drawRect(pelota_verde.getPelota(), paint);
                 paint.setColor(Color.WHITE);
             }
-            if(azul){
+            if(pelota_azul.isVisible()){
                 paint.setColor(Color.BLUE);
                 canvas.drawRect(pelota_azul.getPelota(), paint);
                 paint.setColor(Color.WHITE);
@@ -139,8 +139,8 @@ public class Game extends SurfaceView implements Runnable {
         if(puntos % 5 == 0){
             pelota.CambiarVelocidad();
             nivel++;
-            if(verde)   azul = true;
-            verde=true;
+            if(pelota_verde.isVisible())   pelota_azul.mostrarCuadro();
+            pelota_verde.mostrarCuadro();
         }
     }
 

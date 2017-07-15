@@ -10,6 +10,7 @@ public class Obstaculo extends Pelota {
     public Obstaculo(Game game) {
         super(game);
         xp=(int) (Math.random()*game.getAncho())-50;
+        visible = false;
     }
 
     @Override
@@ -20,7 +21,7 @@ public class Obstaculo extends Pelota {
         if(yp+y > game.getAlto()-50){
             game.raqueta.ReduceRaqueta();
             game.pierdeVida();
-            game.quitarCuadro();
+            visible = false;
             reubicarCuadro();
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
@@ -35,4 +36,8 @@ public class Obstaculo extends Pelota {
         yp=-20;
     }
 
+    public void mostrarCuadro(){    visible = true; }
+    public boolean isVisible(){ return visible; }
+
+    private boolean visible;
 }
