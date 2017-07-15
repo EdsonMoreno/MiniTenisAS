@@ -29,6 +29,7 @@ public class Game extends SurfaceView implements Runnable {
         paint.setColor(Color.WHITE);
         score =getResources().getString(R.string.puntajes);
         level = getResources().getString(R.string.nivel);
+        life = getResources().getString(R.string.vidas);
         paint.setTextSize(30);
 
         ancho = point.x;
@@ -36,10 +37,12 @@ public class Game extends SurfaceView implements Runnable {
 
         //calcula tres cuartos de pantalla para el texto d enivel
         tres_cuartos = ancho/4;
+        un_cuarto = ancho/4;
         tres_cuartos*=3;
 
         nivel = 0;
         puntos = 0;
+        vidas = 3;
 
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
@@ -58,6 +61,7 @@ public class Game extends SurfaceView implements Runnable {
             canvas.drawOval(pelota.getPelota(), paint);
             canvas.drawText(score+" : "+puntos,2,70,paint);
             canvas.drawText(level+" : "+nivel,tres_cuartos,70,paint);
+            canvas.drawText(life+": "+vidas, un_cuarto, 2, paint);
             holder.unlockCanvasAndPost(canvas);
         }
     }
@@ -120,8 +124,8 @@ public class Game extends SurfaceView implements Runnable {
         pintor.start();
     }
 
-    private int ancho, alto, puntos, nivel, tres_cuartos;
-    private String score, level;
+    private int ancho, alto, puntos, nivel, vidas, tres_cuartos, un_cuarto;
+    private String score, level, life;
     private boolean jugando;
     private Thread pintor;
     private SurfaceHolder holder;
