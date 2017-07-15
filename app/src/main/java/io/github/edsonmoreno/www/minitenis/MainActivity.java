@@ -22,11 +22,13 @@ public class MainActivity extends Activity {
     }
 
     public void highScore(View vista){
-
+        Intent galeria = new Intent(this, Galeria.class);
+        startActivity(galeria);
     }
 
     public void  newGame(View vista){
-
+        Intent intencion_juego = new Intent(this, ActivityJuego.class);
+        startActivity(intencion_juego);
     }
 
 }

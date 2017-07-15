@@ -16,8 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Informacion"></activity>
-        <activity android:name=".ActivityJuego"></activity>
+        <activity android:name=".Informacion" />
+        <activity android:name=".ActivityJuego" />
+        <activity android:name=".Galeria"></activity>
     </application>
 
 </manifest>
