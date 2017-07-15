@@ -2,4 +2,17 @@
     <string name="app_name">Mini Tenis</string>
     <string name="puntajes">Puntuacion: </string>
     <string name="nivel">Nivel: </string>
+    <string name="instrucciones">
+        Bienvenido al minitenis, un divertido juego que consiste en golpear una bola con una raqueta
+        haciendola rebotar en las aredes de la mesa y asi sumar puntos, pero alerta! si dejas que la
+        bola supere a la raqueta perderas!.
+
+        Al golpear la bola recibiras un punto y por cada cinco puntos que recibas pasaras a un siguiente
+        nivel en el cual la velocidad d ela bola aumentara por dos unidades.
+
+        Si golpeas la pelota con la mitad anterior conseguiras que la bola rebote contra el lado
+        derecho de la pantalla.
+        Si golpeas la pelota con la mitas posterior de la raqueta conseguiras que la bola rebote
+        contra la pared izquierda del campo.
+    </string>
 </resources>
