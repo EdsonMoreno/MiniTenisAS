@@ -56,8 +56,10 @@ public class Game extends SurfaceView implements Runnable {
         if(holder.getSurface().isValid()){
             canvas = holder.lockCanvas();
             canvas.drawColor(getResources().getColor(R.color.Suelo));
+            //Barra superior
             paint.setColor(Color.BLACK);
             canvas.drawRect(0,0,ancho,100, paint);
+            //Resto del campo
             paint.setColor(Color.WHITE);
             canvas.drawRect(raqueta.getRaqueta(), paint);
             canvas.drawOval(pelota.getPelota(), paint);

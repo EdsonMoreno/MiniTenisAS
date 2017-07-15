@@ -28,7 +28,7 @@ public class Pelota {
         if (xp + x > game.getAncho() - 50) {
             x = -velocidad;
         }
-        if(yp+y < 0){
+        if(yp+y <= 100){
             y=velocidad;
         }
         if(yp+y > game.getAlto()-50){
