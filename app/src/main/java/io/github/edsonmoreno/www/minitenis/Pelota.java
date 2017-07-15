@@ -61,8 +61,8 @@ public class Pelota {
         yp=-20;
     }
 
-    private int xp,yp,x,y;
-    private int ancho, alto, velocidad;
-    private RectF pelota;
-    private Game game;
+    protected int xp,yp,x,y;
+    protected int ancho, alto, velocidad;
+    protected RectF pelota;
+    protected Game game;
 }
