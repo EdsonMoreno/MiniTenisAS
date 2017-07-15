@@ -22,4 +22,6 @@
     <string name="acerca_de">Informacion\n del juego</string>
     <string name="juego_nuevo">Iniciar\n juego</string>
     <string name="altos_puntajes">Galeria\n de puntos</string>
+    <string name="puntahe">Puntos:</string>
+    <string name="jugador">Nombre:</string>
 </resources>

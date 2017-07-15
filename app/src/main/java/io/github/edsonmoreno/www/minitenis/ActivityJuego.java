@@ -1,6 +1,7 @@
 package io.github.edsonmoreno.www.minitenis;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -13,6 +14,7 @@ public class ActivityJuego extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         game = new Game(this);
         setContentView(game);
     }
