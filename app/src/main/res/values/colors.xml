@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="Suelo">#0D914F</color>
+    <color name="negro">#000000</color>
+    <color name="manzana">#07fb1a</color>
 </resources>
