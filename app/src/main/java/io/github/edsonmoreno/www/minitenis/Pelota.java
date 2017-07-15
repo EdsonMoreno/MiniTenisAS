@@ -32,8 +32,14 @@ public class Pelota {
             y=velocidad;
         }
         if(yp+y > game.getAlto()-50){
-            y=0;
-            x=0;
+            if(game.estaMuerto()) {
+                game.pierdeVida();
+                reubicarBola();
+            }
+            else {
+                y = 0;
+                x = 0;
+            }
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
             y=-velocidad;
@@ -50,6 +56,10 @@ public class Pelota {
         velocidad+=1;
     }
     public int getVelocidad(){ return velocidad;   }
+    public void reubicarBola(){
+        xp=(ancho/2)-20;
+        yp=-20;
+    }
 
     private int xp,yp,x,y;
     private int ancho, alto, velocidad;
