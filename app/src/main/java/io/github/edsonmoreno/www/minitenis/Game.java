@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
-import android.os.Handler;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -37,7 +36,7 @@ public class Game extends SurfaceView implements Runnable {
 
         //calcula tres cuartos de pantalla para el texto d enivel
         tres_cuartos = ancho/4;
-        un_cuarto = (ancho/4)+15;
+        un_cuarto = (ancho/4)+45;
         tres_cuartos*=3;
 
         nivel = 0;
