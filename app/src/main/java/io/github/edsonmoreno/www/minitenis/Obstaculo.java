@@ -12,24 +12,27 @@ public class Obstaculo extends Pelota {
         xp=(int) (Math.random()*game.getAncho())-50;
     }
 
+    @Override
     public void Actualizar(){
         if(yp+y <= 100){
             y=velocidad;
         }
         if(yp+y > game.getAlto()-50){
-            if(game.estaMuerto()) {
-                game.raqueta.ReduceRaqueta();
-                reubicarBola();
-            }
-            else {
-                y = 0;
-            }
+            game.raqueta.ReduceRaqueta();
+            game.pierdeVida();
+            game.quitarCuadro();
+            reubicarCuadro();
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
             y=-velocidad;
-            game.SumarPuntos();
         }
         yp+=y;
         pelota.set(xp, yp, xp+50, yp+50);
     }
+
+    public void reubicarCuadro(){
+        xp=(int) (Math.random()*game.getAncho())-50;
+        yp=-20;
+    }
+
 }

@@ -80,6 +80,7 @@ public class Game extends SurfaceView implements Runnable {
     public int getAncho(){  return ancho;   }
     public int getAlto(){   return alto;    }
     public void pierdeVida(){   vidas--;    }
+    public void quitarCuadro(){ verde = false;  }
     public boolean estaMuerto(){
         if(vidas > 0)  return true;
         return false;
