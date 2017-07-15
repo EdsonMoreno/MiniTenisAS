@@ -37,7 +37,7 @@ public class Game extends SurfaceView implements Runnable {
 
         //calcula tres cuartos de pantalla para el texto d enivel
         tres_cuartos = ancho/4;
-        un_cuarto = ancho/4;
+        un_cuarto = (ancho/4)+15;
         tres_cuartos*=3;
 
         nivel = 0;
@@ -61,7 +61,7 @@ public class Game extends SurfaceView implements Runnable {
             canvas.drawOval(pelota.getPelota(), paint);
             canvas.drawText(score+" : "+puntos,2,70,paint);
             canvas.drawText(level+" : "+nivel,tres_cuartos,70,paint);
-            canvas.drawText(life+": "+vidas, un_cuarto, 2, paint);
+            canvas.drawText(life+": "+vidas, un_cuarto, 70, paint);
             holder.unlockCanvasAndPost(canvas);
         }
     }
