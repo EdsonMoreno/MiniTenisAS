@@ -1,5 +1,6 @@
 package io.github.edsonmoreno.www.minitenis;
 
+import android.graphics.Color;
 import android.graphics.RectF;
 
 /**
@@ -38,6 +39,11 @@ public class Obstaculo extends Pelota {
 
     public void mostrarCuadro(){    visible = true; }
     public boolean isVisible(){ return visible; }
+    public int colorPelota(){ return color;   }
+    public void defineColor(int c){
+        color = c;
+    }
 
     private boolean visible;
+    private int color;
 }
