@@ -21,7 +21,7 @@ public class Obstaculo extends Pelota {
         }
         if(yp+y > game.getAlto()-50){
             game.raqueta.ReduceRaqueta();
-            game.pierdeVida();
+            if(game.estaMuerto())   game.pierdeVida();
             visible = false;
             reubicarCuadro();
         }

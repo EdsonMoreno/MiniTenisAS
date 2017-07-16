@@ -45,8 +45,6 @@ public class Game extends SurfaceView implements Runnable {
 
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
-        pelota_verde = new Obstaculo(this);
-        pelota_azul = new Obstaculo(this);
         pelotas = new Obstaculo[5];
         for(int x=0; x<pelotas.length; x++){
             pelotas[x] = new Obstaculo(this);
@@ -77,16 +75,6 @@ public class Game extends SurfaceView implements Runnable {
             paint.setColor(Color.WHITE);
             canvas.drawRect(raqueta.getRaqueta(), paint);
             canvas.drawOval(pelota.getPelota(), paint);
-            if(pelota_verde.isVisible()){
-                paint.setColor(Color.GREEN);
-                canvas.drawRect(pelota_verde.getPelota(), paint);
-                paint.setColor(Color.WHITE);
-            }
-            if(pelota_azul.isVisible()){
-                paint.setColor(Color.BLUE);
-                canvas.drawRect(pelota_azul.getPelota(), paint);
-                paint.setColor(Color.WHITE);
-            }
             for( int x=0; x < pelotas.length; x++ ){
                 paint.setColor(pelotas[x].colorPelota());
                 if(pelotas[x].isVisible()){
@@ -104,10 +92,12 @@ public class Game extends SurfaceView implements Runnable {
     public int getAncho(){  return ancho;   }
     public int getAlto(){   return alto;    }
     public void pierdeVida(){   vidas--;    }
-    public void quitarCuadro(){ verde = false;  }
     public boolean estaMuerto(){
-        if(vidas > 0)  return true;
-        return false;
+        if(vidas > 0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -167,21 +157,19 @@ public class Game extends SurfaceView implements Runnable {
 
     public void nuevoJuego(){
         jugando=true;
-        verde=false;
-        azul=false;
         pintor = new Thread(this);
         pintor.start();
     }
 
     private int ancho, alto, puntos, nivel, vidas, tres_cuartos, un_cuarto;
     private String score, level, life;
-    private boolean jugando, verde, azul;
+    private boolean jugando;
     private Thread pintor;
     private SurfaceHolder holder;
     private Canvas canvas;
     private Paint paint;
     protected Raqueta raqueta;
     protected Pelota pelota;
-    protected Obstaculo pelota_verde, pelota_azul, pelotas[];
+    protected Obstaculo pelotas[];
     private long timeThisFrame, fps;
 }
