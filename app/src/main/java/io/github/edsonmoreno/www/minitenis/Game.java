@@ -156,8 +156,12 @@ public class Game extends SurfaceView implements Runnable {
         if(puntos % 5 == 0){
             pelota.CambiarVelocidad();
             nivel++;
-            if(pelota_verde.isVisible())   pelota_azul.mostrarCuadro();
-            pelota_verde.mostrarCuadro();
+
+            if(pelotas[3].isVisible())   pelotas[4].mostrarCuadro();
+            if(pelotas[2].isVisible())   pelotas[3].mostrarCuadro();
+            if(pelotas[1].isVisible())   pelotas[2].mostrarCuadro();
+            if(pelotas[0].isVisible())   pelotas[1].mostrarCuadro();
+            pelotas[0].mostrarCuadro();
         }
     }
 
