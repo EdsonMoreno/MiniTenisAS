@@ -42,5 +42,6 @@ public class ActivityJuego extends Activity {
         finish();
     }
 
+
     private Game game;
 }
