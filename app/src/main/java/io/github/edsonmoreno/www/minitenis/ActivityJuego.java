@@ -20,13 +20,11 @@ public class ActivityJuego extends Activity {
         game = new Game(this);
         game.setActivity(this);
         setContentView(game);
-        Toast.makeText(getApplicationContext(),"onCreate",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Toast.makeText(getApplicationContext(),"onResume",Toast.LENGTH_SHORT).show();
         game.nuevoJuego();
     }
 
@@ -36,9 +34,9 @@ public class ActivityJuego extends Activity {
         if(game.estaMuerto()){
             game.Detener();
         }else{
-            System.out.println("-----------------ONPAUSE ELSE --------------");
-          //  Toast.makeText(getApplicationContext(),"onPause",Toast.LENGTH_SHORT).show();
-            finish();
+            Toast toast = Toast.makeText(getApplicationContext(),"has Perdido!",Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
         }
     }
 
