@@ -17,31 +17,34 @@ public class ActivityJuego extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        game = new Game(this);
-        setContentView(game);
+  //      game = new Game(this);
+  //      setContentView(game);
+        Toast.makeText(getApplicationContext(),"onCreate",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        game.nuevoJuego();
+        Toast.makeText(getApplicationContext(),"onResume",Toast.LENGTH_SHORT).show();
+    //    game.nuevoJuego();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        System.out.println("onPause antes");
-        game.Detener();
-        System.out.println("onPause Despues");
+        Toast.makeText(getApplicationContext(),"onPause",Toast.LENGTH_SHORT).show();
+       // System.out.println("onPause antes");
+      //  game.Detener();
+        //System.out.println("onPause Despues");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        System.out.println("DESPUES");
+        Toast.makeText(getApplicationContext(),"onStop",Toast.LENGTH_SHORT).show();
+     //   System.out.println("DESPUES");
         finish();
     }
-
 
     private Game game;
 }
