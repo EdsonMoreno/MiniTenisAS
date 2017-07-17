@@ -1,5 +1,6 @@
 package io.github.edsonmoreno.www.minitenis;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -43,7 +44,7 @@ public class Game extends SurfaceView implements Runnable {
 
         nivel = 0;
         puntos = 0;
-        vidas = 3;
+        vidas = 1;
 
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
@@ -61,7 +62,7 @@ public class Game extends SurfaceView implements Runnable {
     public int getAncho() {
         return ancho;
     }
-
+    public void setActivity(Activity a){    activity = a;   }
     public int getAlto() {
         return alto;
     }
@@ -70,6 +71,7 @@ public class Game extends SurfaceView implements Runnable {
         vidas--;
         if (vidas < 0) {
             jugando = false;
+            activity.finish();
         }
     }
 
@@ -122,17 +124,7 @@ public class Game extends SurfaceView implements Runnable {
     }
 
     public void Detener() {
-        if(jugando == false){
-            System.out.println("ANTES");
-            return;
-        }
-        System.out.println("DESPUES");
         jugando = false;
-        try {
-            pintor.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public void SumarPuntos() {
@@ -168,7 +160,6 @@ public class Game extends SurfaceView implements Runnable {
           //  long startFrameTime = System.currentTimeMillis();
             Actualizar();
             Pintar();
-            System.out.println("BUCLEEEEEEEEEE");
          /*   timeThisFrame = System.currentTimeMillis() - startFrameTime;
             if (timeThisFrame >= 1) {
                 fps = 1000 / timeThisFrame;
@@ -199,5 +190,6 @@ public class Game extends SurfaceView implements Runnable {
     protected Raqueta raqueta;
     protected Pelota pelota;
     protected Obstaculo pelotas[];
+    public Activity activity;
     private long timeThisFrame, fps;
 }

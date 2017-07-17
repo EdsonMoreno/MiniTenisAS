@@ -17,8 +17,9 @@ public class ActivityJuego extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-  //      game = new Game(this);
-  //      setContentView(game);
+        game = new Game(this);
+        game.setActivity(this);
+        setContentView(game);
         Toast.makeText(getApplicationContext(),"onCreate",Toast.LENGTH_SHORT).show();
     }
 
@@ -26,24 +27,19 @@ public class ActivityJuego extends Activity {
     protected void onResume() {
         super.onResume();
         Toast.makeText(getApplicationContext(),"onResume",Toast.LENGTH_SHORT).show();
-    //    game.nuevoJuego();
+        game.nuevoJuego();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(getApplicationContext(),"onPause",Toast.LENGTH_SHORT).show();
-       // System.out.println("onPause antes");
-      //  game.Detener();
-        //System.out.println("onPause Despues");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Toast.makeText(getApplicationContext(),"onStop",Toast.LENGTH_SHORT).show();
-     //   System.out.println("DESPUES");
-        finish();
+        if(game.estaMuerto()){
+            game.Detener();
+        }else{
+            System.out.println("-----------------ONPAUSE ELSE --------------");
+          //  Toast.makeText(getApplicationContext(),"onPause",Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     private Game game;
