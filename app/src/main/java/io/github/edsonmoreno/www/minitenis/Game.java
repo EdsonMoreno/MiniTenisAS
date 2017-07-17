@@ -157,13 +157,8 @@ public class Game extends SurfaceView implements Runnable {
             e.printStackTrace();
         }
         while (jugando) {
-          //  long startFrameTime = System.currentTimeMillis();
             Actualizar();
             Pintar();
-         /*   timeThisFrame = System.currentTimeMillis() - startFrameTime;
-            if (timeThisFrame >= 1) {
-                fps = 1000 / timeThisFrame;
-            }*/
         }
     }
 
@@ -191,5 +186,4 @@ public class Game extends SurfaceView implements Runnable {
     protected Pelota pelota;
     protected Obstaculo pelotas[];
     public Activity activity;
-    private long timeThisFrame, fps;
 }
