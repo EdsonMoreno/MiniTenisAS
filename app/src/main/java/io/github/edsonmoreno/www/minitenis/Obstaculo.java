@@ -37,6 +37,7 @@ public class Obstaculo extends Pelota {
     private void reubicarCuadro(){
         xp=(int) (Math.random()*game.getAncho())-50;
         yp=-20;
+        golpe = 0;
     }
 
     private void ganarVida(){
