@@ -32,14 +32,4 @@ public class MainActivity extends Activity {
         Intent intencion_juego = new Intent(this, ActivityJuego.class);
         startActivity(intencion_juego);
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        //Si no encuentra el valor guardado reinicia la variable
-        puntos = sharedPreferences.getInt("puntos",0);
-    }
-
-    private int puntos;
 }

@@ -8,7 +8,19 @@
     tools:context="io.github.edsonmoreno.www.minitenis.Galeria">
 
     <TextView
-        android:id="@+id/puntaje_galeria"
+        android:id="@+id/titulo_galeria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="@string/puntajes_altos"
+        android:textColor="@color/manzana"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/p1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,13 +28,51 @@
         android:layout_marginTop="97dp"
         android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/p1"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/p3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/p2"
+        android:layout_alignRight="@+id/p2"
+        android:layout_below="@+id/p2"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/p4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/p3"
+        android:layout_alignStart="@+id/p3"
+        android:layout_below="@+id/p3"
+        android:layout_marginTop="18dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/p5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/p4"
+        android:layout_alignStart="@+id/p4"
+        android:layout_below="@+id/p4"
+        android:layout_marginTop="21dp"
+        android:textSize="30sp" />
+
     <Button
         android:id="@+id/volver"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:onClick="Salir"
-        android:text="@string/boton_volver"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp" />
+        android:layout_marginBottom="13dp"
+        android:onClick="Salir"
+        android:text="@string/boton_volver" />
 </RelativeLayout>
