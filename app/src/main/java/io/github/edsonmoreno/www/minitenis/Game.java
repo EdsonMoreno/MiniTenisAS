@@ -44,7 +44,7 @@ public class Game extends SurfaceView implements Runnable {
 
         nivel = 0;
         puntos = 0;
-        vidas = 1;
+        vidas = 2;
 
         raqueta = new Raqueta(this);
         pelota = new Pelota(this);
@@ -63,9 +63,8 @@ public class Game extends SurfaceView implements Runnable {
         return ancho;
     }
     public void setActivity(Activity a){    activity = a;   }
-    public int getAlto() {
-        return alto;
-    }
+    public int getAlto(){  return alto;    }
+    public void ganaVida(){ vidas++;    }
 
     public void pierdeVida() {
         vidas--;
@@ -78,7 +77,7 @@ public class Game extends SurfaceView implements Runnable {
     public void finDeJuego() {
         nivel = 0;
         puntos = 0;
-        vidas = 3;
+        vidas = 2;
         jugando = false;
     }
 
@@ -186,4 +185,6 @@ public class Game extends SurfaceView implements Runnable {
     protected Pelota pelota;
     protected Obstaculo pelotas[];
     public Activity activity;
+
+
 }

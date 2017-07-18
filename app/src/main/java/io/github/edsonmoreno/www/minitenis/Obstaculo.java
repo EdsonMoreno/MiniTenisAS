@@ -27,14 +27,23 @@ public class Obstaculo extends Pelota {
         }
         if(RectF.intersects(getPelota(),game.raqueta.getRaqueta())){
             y=-velocidad;
+            golpe++;
         }
         yp+=y;
         pelota.set(xp, yp, xp+50, yp+50);
+        ganarVida();
     }
 
-    public void reubicarCuadro(){
+    private void reubicarCuadro(){
         xp=(int) (Math.random()*game.getAncho())-50;
         yp=-20;
+    }
+
+    private void ganarVida(){
+        if(golpe == 10){
+            game.ganaVida();
+            golpe = 0;
+        }
     }
 
     public void mostrarCuadro(){    visible = true; }
@@ -45,5 +54,5 @@ public class Obstaculo extends Pelota {
     }
 
     private boolean visible;
-    private int color;
+    private int color, golpe;
 }
