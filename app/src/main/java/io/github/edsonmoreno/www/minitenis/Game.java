@@ -186,5 +186,6 @@ public class Game extends SurfaceView implements Runnable {
     protected Obstaculo pelotas[];
     public Activity activity;
 
-
+    public int puntos() {   return  puntos; }
+    public int vidas() {    return vidas;   }
 }

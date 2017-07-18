@@ -1,8 +1,10 @@
 package io.github.edsonmoreno.www.minitenis;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.widget.Toast;
@@ -37,6 +39,14 @@ public class ActivityJuego extends Activity {
             Toast toast = Toast.makeText(getApplicationContext(),"has Perdido!",Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
+            //Obtener sharedpreferences por defecto
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            //crear  objeto editable shared preferences
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            //modificamos el archivo
+            editor.putInt("puntos",game.puntos());
+            //guardamos cambios
+            editor.apply();
         }
     }
 

@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context="io.github.edsonmoreno.www.minitenis.Galeria">
 
+    <TextView
+        android:id="@+id/puntaje_galeria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:textSize="30sp" />
+
     <Button
         android:id="@+id/volver"
         android:layout_width="wrap_content"
