@@ -10,6 +10,8 @@
         bola supere a la raqueta perderas!.</br>\n\n
         Instrucciones\n
         ---------------------\n
+        Al iniciar una nueva partida te encontraras en el nivel cero, con cero puntos y con 3 vidas.
+        \n
         Al golpear la bola recibiras un punto y por cada cinco puntos que sumes pasaras a un siguiente
         nivel en el cual la velocidad de la bola aumentara por dos unidades.
         \n
@@ -22,6 +24,10 @@
         Cada vez que sumas cinco puntos caera un cuadrado de forma vertical el cual deberas mantener
         rebotando, o de lo contrario no solo perderas una vida sino que el tamaño de tu raqueta se
         reducira en 20pts.
+        \n
+        Si logras golpear diez veces el cuadro sin dejarlo caer conseguiras sumar una vida.
+        \n
+        Nunca habran mas de cinco cuadros simultaneos en una misma partida.
     </string>
     <string name="boton_volver">Volver al menus principal</string>
     <string name="acerca_de">Informacion\n del juego</string>
