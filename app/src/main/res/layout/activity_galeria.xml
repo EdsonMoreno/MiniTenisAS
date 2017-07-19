@@ -9,11 +9,12 @@
 
     <TextView
         android:id="@+id/titulo_galeria"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
+
         android:text="@string/puntajes_altos"
         android:textColor="@color/manzana"
         android:textSize="36sp"
@@ -23,47 +24,46 @@
         android:id="@+id/p1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
+        android:text="0"
+        android:layout_marginTop="70dp"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/p2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/p1"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:layout_marginBottom="17dp"
+        android:text="0"
+        android:textSize="30sp"
+        android:layout_marginTop="108dp"/>
 
     <TextView
         android:id="@+id/p3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/p2"
-        android:layout_alignRight="@+id/p2"
-        android:layout_below="@+id/p2"
-        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="146dp"
+        android:text="0"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/p4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/p3"
-        android:layout_alignStart="@+id/p3"
-        android:layout_below="@+id/p3"
-        android:layout_marginTop="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="184dp"
+        android:text="0"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/p5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/p4"
-        android:layout_alignStart="@+id/p4"
-        android:layout_below="@+id/p4"
-        android:layout_marginTop="21dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="224dp"
+        android:text="0"
         android:textSize="30sp" />
 
     <Button
@@ -72,7 +72,7 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="17dp"
         android:onClick="Salir"
         android:text="@string/boton_volver" />
 </RelativeLayout>
