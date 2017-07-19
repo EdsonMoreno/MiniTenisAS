@@ -15,18 +15,37 @@ public class Galeria extends AppCompatActivity {
         setContentView(R.layout.activity_galeria);
 
         ganadores = new int[5];
-        for(Integer g:ganadores){
-            g = 0;
-        }
-        TextView texto = (TextView) findViewById(R.id.p1);
+        //Obtenemos los puntajes con persistencia de datos
+        //si el puntaje no esta colocamos un cero
+        obtenerPuntajes();
+
+        //Obtenemos las casillas de texto
+        TextView uno = (TextView) findViewById(R.id.p1);
+        TextView dos = (TextView) findViewById(R.id.p2);
+        TextView tres = (TextView) findViewById(R.id.p3);
+        TextView cuatro = (TextView) findViewById(R.id.p4);
+        TextView cinco = (TextView) findViewById(R.id.p5);
+
+        //rescatamos el puntaje de la ultima partida
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         int aux = sharedPreferences.getInt("puntos",0);
-        texto.setText(""+aux+"\n"+aux);
+
+        //ubicamos el puntaje nuevo en la cg
+        ubicarPuntaje(aux);
+        //muestro la lista actualzada
+        uno.setText(""+ganadores[0]);
+        dos.setText(""+ganadores[1]);
+        tres.setText(""+ganadores[2]);
+        cuatro.setText(""+ganadores[3]);
+        cinco.setText(""+ganadores[4]);
     }
 
     public void Salir(View vista){
-        insercionDirecta(ganadores);
+        //ordeno los puntajes
+      //  insercionDirecta(ganadores);
+        //guardo los puntajes ordenados
         salvarPuntajes();
+        //cierro la galeria
         finish();
     }
 
@@ -49,6 +68,24 @@ public class Galeria extends AppCompatActivity {
         ganadores[2] = sharedPreferences.getInt("tres",0);
         ganadores[3] = sharedPreferences.getInt("cuatro",0);
         ganadores[4] = sharedPreferences.getInt("cinco",0);
+    }
+
+    private void ubicarPuntaje(int puntaje){
+        int aux=-1, x;
+        for(x=0; x<ganadores.length; x++){
+            if(puntaje > ganadores[x] ) aux = x;
+        }
+
+        //si aux es -1 es porque el puntaje ingresad es menor a cualquier puntaje de los que estan
+        // ya en la lista
+        if(aux == -1) return;
+
+        x = (ganadores.length-1);
+        while(x < aux){
+            ganadores[x] = ganadores[x-1];
+            x--;
+        }
+        ganadores[aux] = puntaje;
     }
 
     public static void insercionDirecta(int A[]){
