@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/negro"
     android:orientation="vertical"
     tools:context="io.github.edsonmoreno.www.minitenis.Galeria">
 
@@ -25,8 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="0"
         android:layout_marginTop="70dp"
+        android:text="0"
+        android:textColor="@color/manzana"
         android:textSize="30sp" />
 
     <TextView
@@ -35,9 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="17dp"
+        android:layout_marginTop="108dp"
         android:text="0"
-        android:textSize="30sp"
-        android:layout_marginTop="108dp"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/p3"
@@ -46,6 +49,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="146dp"
         android:text="0"
+        android:textColor="@color/colorAccent"
         android:textSize="30sp" />
 
     <TextView
@@ -55,6 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="184dp"
         android:text="0"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp" />
 
     <TextView
@@ -64,6 +69,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="224dp"
         android:text="0"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp" />
 
     <Button
