@@ -29,9 +29,15 @@ public class Galeria extends AppCompatActivity {
         //rescatamos el puntaje de la ultima partida
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         int aux = sharedPreferences.getInt("puntos",0);
+        int aux_ultimo = sharedPreferences.getInt("ultimo_puntaje",0);
+        if(aux != aux_ultimo){
+            //ubicamos el puntaje nuevo en la cg
+            ubicarPuntaje(aux);
+            SharedPreferences.Editor spe = sharedPreferences.edit();
+            spe.putInt("ultimo_puntaje",aux);
+            spe.apply();
+        }
 
-        //ubicamos el puntaje nuevo en la cg
-        ubicarPuntaje(aux);
         //muestro la lista actualzada
         uno.setText(""+ganadores[0]);
         dos.setText(""+ganadores[1]);
@@ -73,7 +79,10 @@ public class Galeria extends AppCompatActivity {
     private void ubicarPuntaje(int puntaje){
         int aux=-1, x;
         for(x=0; x<ganadores.length; x++){
-            if(puntaje > ganadores[x] ) aux = x;
+            if(puntaje > ganadores[x] ){
+                aux = x;
+                break;
+            }
         }
 
         //si aux es -1 es porque el puntaje ingresad es menor a cualquier puntaje de los que estan

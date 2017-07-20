@@ -39,16 +39,55 @@ public class ActivityJuego extends Activity {
             Toast toast = Toast.makeText(getApplicationContext(),"has Perdido!",Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
-            //Obtener sharedpreferences por defecto
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            //crear  objeto editable shared preferences
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            //modificamos el archivo
-            editor.putInt("puntos",game.puntos());
-            //guardamos cambios
-            editor.apply();
+            ganadores = new int[5];
+            obtenerPuntajes();
+            ubicarPuntaje(game.puntos());
+            salvarPuntajes();
         }
     }
 
+    private void salvarPuntajes(){
+        //salvamos los cinco puntahes en orden
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editable = sharedPreferences.edit();
+        editable.putInt("uno",ganadores[0]);
+        editable.putInt("dos",ganadores[1]);
+        editable.putInt("tres",ganadores[2]);
+        editable.putInt("cuatro",ganadores[3]);
+        editable.putInt("cinco",ganadores[4]);
+        editable.apply();
+    }
+
+    private void  obtenerPuntajes(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        ganadores[0] = sharedPreferences.getInt("uno",0);
+        ganadores[1] = sharedPreferences.getInt("dos",0);
+        ganadores[2] = sharedPreferences.getInt("tres",0);
+        ganadores[3] = sharedPreferences.getInt("cuatro",0);
+        ganadores[4] = sharedPreferences.getInt("cinco",0);
+    }
+
+    private void ubicarPuntaje(int puntaje){
+        int aux=-1, x;
+        for(x=0; x<ganadores.length; x++){
+            if(puntaje > ganadores[x] ){
+                aux = x;
+                break;
+            }
+        }
+
+        //si aux es -1 es porque el puntaje ingresad es menor a cualquier puntaje de los que estan
+        // ya en la lista
+        if(aux == -1) return;
+
+        x = (ganadores.length-1);
+        while(x < aux){
+            ganadores[x] = ganadores[x-1];
+            x--;
+        }
+        ganadores[aux] = puntaje;
+    }
+
+    private int ganadores[];
     private Game game;
 }
