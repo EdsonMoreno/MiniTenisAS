@@ -26,18 +26,6 @@ public class Galeria extends AppCompatActivity {
         TextView cuatro = (TextView) findViewById(R.id.p4);
         TextView cinco = (TextView) findViewById(R.id.p5);
 
-        //rescatamos el puntaje de la ultima partida
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int aux = sharedPreferences.getInt("puntos",0);
-        int aux_ultimo = sharedPreferences.getInt("ultimo_puntaje",0);
-        if(aux != aux_ultimo){
-            //ubicamos el puntaje nuevo en la cg
-            ubicarPuntaje(aux);
-            SharedPreferences.Editor spe = sharedPreferences.edit();
-            spe.putInt("ultimo_puntaje",aux);
-            spe.apply();
-        }
-
         //muestro la lista actualzada
         uno.setText(""+ganadores[0]);
         dos.setText(""+ganadores[1]);
@@ -47,10 +35,6 @@ public class Galeria extends AppCompatActivity {
     }
 
     public void Salir(View vista){
-        //ordeno los puntajes
-      //  insercionDirecta(ganadores);
-        //guardo los puntajes ordenados
-        salvarPuntajes();
         //cierro la galeria
         finish();
     }
