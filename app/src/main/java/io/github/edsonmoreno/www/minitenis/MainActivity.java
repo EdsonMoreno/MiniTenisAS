@@ -32,4 +32,6 @@ public class MainActivity extends Activity {
         Intent intencion_juego = new Intent(this, ActivityJuego.class);
         startActivity(intencion_juego);
     }
+
+    public void Salir(View vista){  finish();   }
 }

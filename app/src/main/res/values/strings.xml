@@ -36,4 +36,5 @@
     <string name="puntahe">Puntos:</string>
     <string name="jugador">Nombre:</string>
     <string name="puntajes_altos">Top 5 MiniTenis</string>
+    <string name="salir">Salir</string>
 </resources>

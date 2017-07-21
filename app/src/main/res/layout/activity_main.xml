@@ -56,4 +56,14 @@
         android:layout_marginRight="14dp"
         android:onClick="dameInfo"
         android:text="@string/acerca_de" />
+
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/info"
+        android:layout_alignLeft="@+id/puntajes_Altos"
+        android:layout_alignStart="@+id/puntajes_Altos"
+        android:onClick="Salir"
+        android:text="@string/salir" />
 </RelativeLayout>
