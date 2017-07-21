@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/gris</item>
         <item name="colorPrimaryDark">@color/negro</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorBackground">@color/grisOscuro</item>
         <item name="android:background">@color/grisOscuro</item>
     </style>
 
