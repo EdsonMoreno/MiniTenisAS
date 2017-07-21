@@ -26,6 +26,7 @@
                 android:gravity="top"
                 android:text="@string/instrucciones"
                 android:textAlignment="viewStart"
+                android:textColor="@color/blanco"
                 android:textSize="20sp"
                 android:textStyle="italic" />
         </LinearLayout>

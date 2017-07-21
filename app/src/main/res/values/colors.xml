@@ -5,6 +5,7 @@
     <color name="colorAccent">#ff4081</color>
     <color name="Suelo">#0D914F</color>
     <color name="negro">#000000</color>
+    <color name="blanco">#ffffff</color>
     <color name="gris">#cccccc</color>
     <color name="grisOscuro">#555555</color>
     <color name="manzana">#07fb1a</color>
